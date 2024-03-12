@@ -55,8 +55,12 @@ async function getPortfolio(req, res) {
         if (!portfolio) {
             return res.status(404).json({ error: 'Portfolio not found' });
         }
-
-        const trades = await Trade.find({ stock: { $in: portfolio.stocks }, type: 'buy' });
+        const trades = await Trade.find({ 
+          stock: {
+              $in: portfolio.stocks[0]
+             }, 
+             type: 'buy'
+         });
 
         // Calculate average buying price
         let totalQuantity = 0;
