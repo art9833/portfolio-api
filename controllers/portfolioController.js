@@ -104,7 +104,7 @@ async function getPortfolio(req, res) {
   // Remove a trade
 async function removeTrade(req, res) {
   try {
-      const { id } = req.body;
+      const id  = req.body.tradeId;
       const trade = await Trade.findByIdAndDelete(id);
       if (!trade) {
           return res.status(404).json({ error: 'Trade not found' });

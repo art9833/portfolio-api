@@ -7,7 +7,6 @@ const validationMiddleware = require('../middleware/validationMiddleware');
 // GET /portfolio
 router.get('/', portfolioController.getPortfolio);
 
-
 router.post('/createportfolio', portfolioController.createPortfolio);
 
 // GET /portfolio/holdings
